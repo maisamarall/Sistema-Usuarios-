@@ -24,3 +24,5 @@ class Validator
             return true;
     }
 }
+
+?>

@@ -74,7 +74,7 @@ class UserManager {
         if ($user === null || !password_verify($password, $user->getPassword())) {
             return "Erro: Credenciais inválidas.";
         }
-        return "Sucesso: Login do usuário {$email} realizado com sucesso.";
+        return "Sucesso: Login do usuário {$email} realizado.";
     }
 
     // realiza o reset de senha
@@ -107,3 +107,5 @@ class UserManager {
         return "Sucesso: Senha alterada com sucesso para " . $userToUpdate->getName() . ".";
     }
 } 
+
+?>

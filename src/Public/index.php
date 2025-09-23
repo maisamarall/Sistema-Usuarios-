@@ -22,6 +22,8 @@ function displayResult(string $title, string $result): void
 }
 
 // Casos de Uso
+echo '<br><h2>Sistema de Autenticação de Usuários</h2><br>';
+
 // - cadastro válido
 $result = $userManager->registerUser("Maisa Amaral", "maisa@email.com", "Senha12345");
 displayResult("Caso 1 - Cadastro válido", $result);
@@ -30,10 +32,23 @@ displayResult("Caso 1 - Cadastro válido", $result);
 $result = $userManager->registerUser("Samara Adorno", "samara@@email", "Senha123");
 displayResult("Caso 2 - Cadastro com e-mail inválido", $result);
 
+// - tentativa de login válida
+$result = $userManager->loginUser("maisa@email.com", "Senha12345");
+displayResult("Caso 3 - Tentativa de login válida", $result);
+
 // - tentativa de login com senha errada
 $result = $userManager->loginUser("joao@email.com", "Errada123");
-displayResult("Caso 3 - Tentativa de login com senha errada", $result);
+displayResult("Caso 4 - Tentativa de login com senha errada", $result);
 
 // - tentativa de cadastro com e-mail já em uso
 $result = $userManager->registerUser("João Silva", "joao@email.com", "NovaSenha123");
-displayResult("Caso 4 - Tentativa de cadastro com e-mail já em uso", $result);
+displayResult("Caso 5 - Tentativa de cadastro com e-mail já em uso", $result);
+
+// - reset de senha válido
+$result = $userManager->resetPassword(1, "NovaSenha1");
+displayResult("Caso 6 - Reset de senha válido", $result);
+
+// - reset de senha com critérios inválidos
+$result = $userManager->resetPassword(1, "curta");
+displayResult("Caso 7 - Reset de senha com critérios inválidos", $result);
+?>
