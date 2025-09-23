@@ -63,7 +63,7 @@ class UserManager {
         $this->users[] = $newUser;
         $this->nextId++; 
 
-        return "Sucesso: Usuário {$name} cadastrado";
+        return "Sucesso: Usuário {$name} cadastrado com sucesso.";
     }
 
     // realiza o login do usuário
@@ -74,7 +74,7 @@ class UserManager {
         if ($user === null || !password_verify($password, $user->getPassword())) {
             return "Erro: Credenciais inválidas.";
         }
-        return "Sucesso: Login do usuário {$email} realizado.";
+        return "Sucesso: Login do usuário {$email} realizado com sucesso.";
     }
 
     // realiza o reset de senha
