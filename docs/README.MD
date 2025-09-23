@@ -57,17 +57,28 @@ O sistema de autenticação de usuários oferece as seguintes funcionalidades:
 
 1.  **Cadastro Válido:**
     - **Entrada:** `$userManager->registerUser("Maisa Amaral", "maisa@email.com", "Senha12345")`
-    - **Resultado esperado:** `Sucesso: Usuário cadastrado com sucesso.`
+    - **Resultado esperado:** `Sucesso: Usuário Maisa Amaral cadastrado com sucesso.`
 
 2.  **Cadastro com E-mail Inválido:**
     - **Entrada:** `$userManager->registerUser("Samara Adorno", "samara@@email", "Senha123")`
     - **Resultado esperado:** `Erro: E-mail inválido.`
 
-3.  **Login com Senha Errada:**
+3. **Login Válido:**
+    - **Entrada:** `$userManager->loginUser("maisa@email.com", "Senha12345")`
+    - **Resultado esperado:** `Sucesso: Login do usuário maisa@email.com realizado com sucesso.`
+
+4.  **Login com Senha Errada:**
     - **Entrada:** `$userManager->loginUser("joao@email.com", "Errada123")`
     - **Resultado esperado:** `Erro: Credenciais inválidas.`
 
-4.  **E-mail Duplicado:**
+5.  **E-mail Duplicado:**
     - **Entrada:** `$userManager->registerUser("João Silva", "joao@email.com", "NovaSenha123")`
     - **Resultado esperado:** `Erro: E-mail já está em uso.`
 
+6. **Reset de Senha Válido:**
+    - **Entrada:** `$userManager->resetPassword(1, "NovaSenha1")`
+    - **Resultado esperado:** `Sucesso: Senha alterada com sucesso para João Silva.`
+
+7. **Reset de senha com critérios inválidos:**
+    - **Entrada:** `$userManager->resetPassword(1, "curta")`
+    - **Resultado esperado:** ` Erro: A senha precisa ter pelo menos 8 caracteres, um número e uma letra maiúscula.`
