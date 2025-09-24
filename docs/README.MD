@@ -42,6 +42,8 @@ O sistema de autenticação de usuários oferece as seguintes funcionalidades:
 - As senhas devem seguir o critério de força: no mínimo 8 caracteres, com pelo menos 1 número e 1 letra maiúscula.
 - Não é possível cadastrar e-mails duplicados.
 - Os dados dos usuários são armazenados em um array simples, sem a necessidade de um banco de dados.
+- O sistema só permite realizar o reset de senha, somente com a senha de um usuário que já está cadastrado.
+- O sistema só permite aplicar o reset de senha, somente quando a nova senha digitada, seguir os critérios da validação de senha forte.
 
 ---
 
