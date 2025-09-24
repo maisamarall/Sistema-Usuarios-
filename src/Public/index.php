@@ -22,7 +22,7 @@ function displayResult(string $title, string $result): void
 }
 
 // Casos de Uso
-echo '<br><h2>Sistema de Autenticação de Usuários</h2><br>';
+echo '<h3>Sistema de Autenticação de Usuários</h3><br>';
 
 // - cadastro válido
 $result = $userManager->registerUser("Maisa Amaral", "maisa@email.com", "Senha12345");
